@@ -23,8 +23,8 @@ public class Review {
     private Film film;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
     private String text;
 }

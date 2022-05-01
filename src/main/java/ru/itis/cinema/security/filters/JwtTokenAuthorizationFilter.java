@@ -11,8 +11,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
-import ru.itis.blog.repositories.BlackListRepository;
-import ru.itis.blog.security.config.JwtSecurityConfiguration;
+import ru.itis.cinema.security.config.JwtSecurityConfiguration;
+
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -30,8 +30,7 @@ public class JwtTokenAuthorizationFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        if (request.getRequestURI().equals(JwtSecurityConfiguration.LOGIN_FILTER_PROCESSES_URL)
-                || request.getRequestURI().equals(JwtSecurityConfiguration.LOGOUT_FILTER_PROCESSES_URL))
+        if (request.getRequestURI().equals(JwtSecurityConfiguration.LOGIN_FILTER_PROCESSES_URL))
         {
             filterChain.doFilter(request, response);
         } else {

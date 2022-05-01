@@ -25,6 +25,12 @@ public class Place {
     @Enumerated(value = EnumType.STRING)
     private State state;
 
+    private Byte number;
+
+    @ManyToOne
+    @JoinColumn(name = "ticket_id")
+    private Ticket ticket;
+
     @ManyToOne
     @JoinColumn(name = "hall_id")
     private Hall hall;

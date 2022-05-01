@@ -11,7 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import ru.itis.cinema.dto.EmailPasswordDto;
-import ru.itis.cinema.models.User;
+import ru.itis.cinema.models.Customer;
 import ru.itis.cinema.security.details.CinemaUserDetails;
 
 import javax.servlet.FilterChain;
@@ -53,13 +53,13 @@ public class JwtTokenAuthenticationFilter extends UsernamePasswordAuthentication
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response,
                                             FilterChain chain, Authentication authResult) throws IOException, ServletException {
         CinemaUserDetails userDetails = (CinemaUserDetails) authResult.getPrincipal();
-        User user = userDetails.getUser();
+        Customer customer = userDetails.getUser();
 
         String token = JWT.create()
-                .withSubject(user.getId().toString())
-                .withClaim("email", user.getEmail())
-                .withClaim("role", user.getRole().toString())
-                .withClaim("state", user.getState().toString())
+                .withSubject(customer.getId().toString())
+                .withClaim("email", customer.getEmail())
+                .withClaim("role", customer.getRole().toString())
+                .withClaim("state", customer.getState().toString())
                 .sign(Algorithm.HMAC256(secretKey));
 
         objectMapper.writeValue(response.getWriter(), Collections.singletonMap("token", token));

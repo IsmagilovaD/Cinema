@@ -19,7 +19,7 @@ public class Genre {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String string;
+    private String name;
 
     @ManyToMany
     @JoinTable(joinColumns = @JoinColumn(name = "genre_id", referencedColumnName = "id"),

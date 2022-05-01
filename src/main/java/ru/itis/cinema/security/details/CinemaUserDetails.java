@@ -3,33 +3,33 @@ package ru.itis.cinema.security.details;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import ru.itis.cinema.models.User;
+import ru.itis.cinema.models.Customer;
 
 import java.util.Collection;
 import java.util.Collections;
 
 public class CinemaUserDetails implements UserDetails {
 
-    private final User user;
+    private final Customer customer;
 
-    public CinemaUserDetails(User user){
-        this.user = user;
+    public CinemaUserDetails(Customer customer){
+        this.customer = customer;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singleton(new SimpleGrantedAuthority(user.getRole().name()));
+        return Collections.singleton(new SimpleGrantedAuthority(customer.getRole().name()));
 
     }
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return customer.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return user.getEmail();
+        return customer.getEmail();
     }
 
     @Override
@@ -39,7 +39,7 @@ public class CinemaUserDetails implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return !user.getState().equals(User.State.BANNED);
+        return !customer.getState().equals(Customer.State.BANNED);
     }
 
     @Override
@@ -49,10 +49,10 @@ public class CinemaUserDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return user.getState().equals(User.State.CONFIRMED);
+        return customer.getState().equals(Customer.State.CONFIRMED);
     }
 
-    public User getUser() {
-        return user;
+    public Customer getUser() {
+        return customer;
     }
 }

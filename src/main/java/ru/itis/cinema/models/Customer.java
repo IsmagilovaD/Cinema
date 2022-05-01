@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-public class User {
+public class Customer {
 
     public enum Role {
         USER, ADMIN
@@ -37,10 +37,10 @@ public class User {
     @Enumerated(value = EnumType.STRING)
     private State state;
 
-    @OneToMany(mappedBy = "user")
-    private List<Ticket> ticketList;
+    @OneToMany(mappedBy = "customer")
+    private List<Ticket> tickets;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "customer")
     private List<Review> reviews;
 
     private String email;

@@ -62,7 +62,8 @@ public class JwtSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(authorizationFilter, UsernamePasswordAuthenticationFilter.class);
 
         http.authorizeRequests()
-                .antMatchers(LOGIN_FILTER_PROCESSES_URL + "/**").permitAll();
+                .antMatchers(LOGIN_FILTER_PROCESSES_URL + "/**").permitAll()
+                .antMatchers("films/**").permitAll();
     }
 
 }

@@ -1,0 +1,7 @@
+### Получить страницу фильмов с пагинацией
+
+GET localhost/films?page=0
+
+### Получить фильмы по жанру
+
+GET localhost/films/genre/Action?page=0
