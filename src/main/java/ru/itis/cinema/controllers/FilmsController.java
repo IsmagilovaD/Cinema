@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.itis.cinema.dto.FilmsPage;
 import ru.itis.cinema.dto.ReviewsPage;
+import ru.itis.cinema.dto.SessionsPage;
 import ru.itis.cinema.services.FilmService;
 
 @RestController
@@ -30,6 +31,12 @@ public class FilmsController {
     public ResponseEntity<ReviewsPage> getFilmReviews(@RequestParam("page") int page,
                                                       @PathVariable("id") Long id){
         return ResponseEntity.ok(filmService.getFilmReviews(page, id));
+    }
+
+    @GetMapping("/{id}/sessions")
+    public ResponseEntity<SessionsPage> getFilmSessions(@RequestParam("page") int page,
+                                                        @PathVariable("id") Long id){
+        return ResponseEntity.ok(filmService.getFilmSessions(page,id));
     }
 
 }

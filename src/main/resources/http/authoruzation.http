@@ -1,0 +1,9 @@
+### Войти в аккаунт
+
+POST localhost/login
+Content-Type: application/json
+
+{
+  "email": "ismagilova.dinara@gmail.com",
+  "password": "qwerty007"
+}

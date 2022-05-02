@@ -2,6 +2,14 @@
 
 GET localhost/films?page=0
 
-### Получить фильмы по жанру
+### Получить фильмы по жанру с пагинацией
 
 GET localhost/films/genre/Action?page=0
+
+### Получить отзывы о фильме
+
+GET localhost/films/1/review?page=0
+
+### Получить сенсы фильма
+
+GET localhost/films/1/sessions?page=0

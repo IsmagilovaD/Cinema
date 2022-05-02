@@ -1,0 +1,53 @@
+### Посмотреть информацию о фильме
+
+GET localhost/film/1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImlzbWFnaWxvdmEuZGluYXJhQGdtYWlsLmNvbSJ9.gTIpiqWFxWUlwPlBRojyloqDVsIVQnhmjeqXXsK9Lt8
+
+### Добавить фильм
+
+POST localhost/film
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImlzbWFnaWxvdmEuZGluYXJhQGdtYWlsLmNvbSJ9.gTIpiqWFxWUlwPlBRojyloqDVsIVQnhmjeqXXsK9Lt8
+
+{
+  "name" : "9 BULLETS",
+  "genres" : ["Mystery & Thriller", "Action"]
+}
+
+
+### Удалить фильм
+
+DELETE localhost/film/delete/10
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImlzbWFnaWxvdmEuZGluYXJhQGdtYWlsLmNvbSJ9.gTIpiqWFxWUlwPlBRojyloqDVsIVQnhmjeqXXsK9Lt8
+
+
+### Обновить название фильма
+
+PUT localhost/film/update/11
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImlzbWFnaWxvdmEuZGluYXJhQGdtYWlsLmNvbSJ9.gTIpiqWFxWUlwPlBRojyloqDVsIVQnhmjeqXXsK9Lt8
+Content-Type: application/json
+
+{
+  "name" : "10 BULLETS"
+}
+
+### Обновить жанры фильма
+
+PUT localhost/film/update/11
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImlzbWFnaWxvdmEuZGluYXJhQGdtYWlsLmNvbSJ9.gTIpiqWFxWUlwPlBRojyloqDVsIVQnhmjeqXXsK9Lt8
+Content-Type: application/json
+
+{
+  "genres" : ["Action"]
+}
+
+### Обновить жанры и название фильма
+
+PUT localhost/film/update/11
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImlzbWFnaWxvdmEuZGluYXJhQGdtYWlsLmNvbSJ9.gTIpiqWFxWUlwPlBRojyloqDVsIVQnhmjeqXXsK9Lt8
+Content-Type: application/json
+
+{
+  "name" : "9 BULLETS",
+  "genres" : ["Mystery & Thriller", "Action"]
+}

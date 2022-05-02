@@ -21,7 +21,9 @@ public class Film {
 
     private String name;
 
-    @ManyToMany(mappedBy = "films")
+    @ManyToMany
+    @JoinTable(joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "genre_id", referencedColumnName = "id"))
     private List<Genre> genres;
 
     @OneToMany(mappedBy = "film")

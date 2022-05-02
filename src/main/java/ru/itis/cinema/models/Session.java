@@ -27,5 +27,5 @@ public class Session {
     @JoinColumn(name = "film_id")
     private Film film;
 
-    private Timestamp time;
+    private Timestamp startedAt;
 }
