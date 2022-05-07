@@ -8,8 +8,10 @@ import org.springframework.data.jpa.repository.Query;
 import ru.itis.cinema.models.Film;
 import ru.itis.cinema.models.Genre;
 
+import java.util.Optional;
+
 public interface FilmsRepository extends JpaRepository<Film, Long> {
     Page<Film> findFilmsByGenres(Pageable pageable, Genre genre);
 
-//    void delete(Film film);
+    Optional<Film> findFilmByName(String name);
 }

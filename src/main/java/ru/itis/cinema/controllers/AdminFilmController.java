@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.itis.cinema.dto.FilmDto;
+import ru.itis.cinema.dto.SessionForm;
 import ru.itis.cinema.services.FilmService;
 
 @RequiredArgsConstructor
@@ -36,5 +37,12 @@ public class AdminFilmController {
     @GetMapping("/{id}")
     public ResponseEntity<FilmDto> getFilm(@PathVariable("id") Long id){
         return ResponseEntity.ok(filmService.getFilm(id));
+    }
+
+    @DeleteMapping("/session")
+    public ResponseEntity<?> deleteFilmSession(@RequestBody SessionForm sessionForm){
+        filmService.deleteSessions(sessionForm);
+        return ResponseEntity
+                .status(HttpStatus.ACCEPTED).build();
     }
 }

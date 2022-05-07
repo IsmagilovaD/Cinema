@@ -5,18 +5,18 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import ru.itis.cinema.repositories.UserRepository;
+import ru.itis.cinema.repositories.CustomerRepository;
 
 @RequiredArgsConstructor
 @Service
-public class CinemaUserDetailsService implements UserDetailsService {
+public class CustomerUserDetailsService implements UserDetailsService {
 
-    private final UserRepository userRepository;
+    private final CustomerRepository customerRepository;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return new CinemaUserDetails(
-                userRepository.findByEmail(email)
+        return new CustomerUserDetails(
+                customerRepository.findByEmail(email)
                         .orElseThrow(
                                 () -> new UsernameNotFoundException("User not found")));
     }

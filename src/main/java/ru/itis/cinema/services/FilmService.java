@@ -1,9 +1,6 @@
 package ru.itis.cinema.services;
 
-import ru.itis.cinema.dto.FilmDto;
-import ru.itis.cinema.dto.FilmsPage;
-import ru.itis.cinema.dto.ReviewsPage;
-import ru.itis.cinema.dto.SessionsPage;
+import ru.itis.cinema.dto.*;
 
 public interface FilmService {
     FilmsPage getFilms(int page);
@@ -21,4 +18,6 @@ public interface FilmService {
     FilmDto updateFilm(Long id, FilmDto filmDto);
 
     FilmDto getFilm(Long id);
+
+    void deleteSessions(SessionForm sessionForm);
 }

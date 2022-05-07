@@ -1,13 +1,13 @@
 ### Посмотреть информацию о фильме
 
 GET localhost/film/1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImlzbWFnaWxvdmEuZGluYXJhQGdtYWlsLmNvbSJ9.gTIpiqWFxWUlwPlBRojyloqDVsIVQnhmjeqXXsK9Lt8
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4Iiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImRpbmFyYS5pc21hZ2lsb3ZhLm11ckBnbWFpbC5jb20ifQ.aw9463Bpoit2Rp2w7xTnX9CFTgJiS4CC1ZSKCeuYNWs
 
 ### Добавить фильм
 
 POST localhost/film
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImlzbWFnaWxvdmEuZGluYXJhQGdtYWlsLmNvbSJ9.gTIpiqWFxWUlwPlBRojyloqDVsIVQnhmjeqXXsK9Lt8
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4Iiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImRpbmFyYS5pc21hZ2lsb3ZhLm11ckBnbWFpbC5jb20ifQ.aw9463Bpoit2Rp2w7xTnX9CFTgJiS4CC1ZSKCeuYNWs
 
 {
   "name" : "9 BULLETS",
@@ -18,13 +18,12 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZ
 ### Удалить фильм
 
 DELETE localhost/film/delete/10
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImlzbWFnaWxvdmEuZGluYXJhQGdtYWlsLmNvbSJ9.gTIpiqWFxWUlwPlBRojyloqDVsIVQnhmjeqXXsK9Lt8
-
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4Iiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImRpbmFyYS5pc21hZ2lsb3ZhLm11ckBnbWFpbC5jb20ifQ.aw9463Bpoit2Rp2w7xTnX9CFTgJiS4CC1ZSKCeuYNWs
 
 ### Обновить название фильма
 
 PUT localhost/film/update/11
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImlzbWFnaWxvdmEuZGluYXJhQGdtYWlsLmNvbSJ9.gTIpiqWFxWUlwPlBRojyloqDVsIVQnhmjeqXXsK9Lt8
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4Iiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImRpbmFyYS5pc21hZ2lsb3ZhLm11ckBnbWFpbC5jb20ifQ.aw9463Bpoit2Rp2w7xTnX9CFTgJiS4CC1ZSKCeuYNWs
 Content-Type: application/json
 
 {
@@ -34,7 +33,7 @@ Content-Type: application/json
 ### Обновить жанры фильма
 
 PUT localhost/film/update/11
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImlzbWFnaWxvdmEuZGluYXJhQGdtYWlsLmNvbSJ9.gTIpiqWFxWUlwPlBRojyloqDVsIVQnhmjeqXXsK9Lt8
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4Iiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImRpbmFyYS5pc21hZ2lsb3ZhLm11ckBnbWFpbC5jb20ifQ.aw9463Bpoit2Rp2w7xTnX9CFTgJiS4CC1ZSKCeuYNWs
 Content-Type: application/json
 
 {
@@ -44,10 +43,31 @@ Content-Type: application/json
 ### Обновить жанры и название фильма
 
 PUT localhost/film/update/11
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImlzbWFnaWxvdmEuZGluYXJhQGdtYWlsLmNvbSJ9.gTIpiqWFxWUlwPlBRojyloqDVsIVQnhmjeqXXsK9Lt8
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4Iiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImRpbmFyYS5pc21hZ2lsb3ZhLm11ckBnbWFpbC5jb20ifQ.aw9463Bpoit2Rp2w7xTnX9CFTgJiS4CC1ZSKCeuYNWs
 Content-Type: application/json
 
 {
   "name" : "9 BULLETS",
   "genres" : ["Mystery & Thriller", "Action"]
+}
+
+### Удалить сессии фильмов после какого-то числа
+
+DELETE localhost/film/session
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4Iiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImRpbmFyYS5pc21hZ2lsb3ZhLm11ckBnbWFpbC5jb20ifQ.aw9463Bpoit2Rp2w7xTnX9CFTgJiS4CC1ZSKCeuYNWs
+Content-Type: application/json
+
+{
+  "startedAt" : "2022-03-01T00:00.000Z"
+}
+
+### Удалить сессии фильмов после какого-то числа
+
+DELETE localhost/film/session
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4Iiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImRpbmFyYS5pc21hZ2lsb3ZhLm11ckBnbWFpbC5jb20ifQ.aw9463Bpoit2Rp2w7xTnX9CFTgJiS4CC1ZSKCeuYNWs
+Content-Type: application/json
+
+{
+  "filmName" : "THE BATMAN",
+  "startedAt" : "2022-03-01T00:00.000Z"
 }

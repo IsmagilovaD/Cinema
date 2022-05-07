@@ -27,6 +27,7 @@ public class Ticket {
     @JoinColumn(name = "session_id")
     private Session session;
 
-    @OneToMany(mappedBy = "ticket")
-    private List<Place> places;
+    @OneToOne
+    @JoinColumn(name = "place_id", referencedColumnName = "id")
+    private Place place;
 }

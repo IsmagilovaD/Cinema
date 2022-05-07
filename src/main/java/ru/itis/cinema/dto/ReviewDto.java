@@ -14,11 +14,13 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @Builder
 public class ReviewDto {
+    private String filmName;
     private String authorName;
     private String text;
 
     public static ReviewDto from(Review review){
         return ReviewDto.builder()
+                .filmName(review.getFilm().getName())
                 .authorName(review.getCustomer().getFirstName() + " " + review.getCustomer().getLastName())
                 .text(review.getText())
                 .build();

@@ -5,6 +5,8 @@ import ru.itis.cinema.models.Customer;
 
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<Customer,Long> {
+public interface CustomerRepository extends JpaRepository<Customer,Long> {
     Optional<Customer> findByEmail(String email);
+
+    Optional<Customer> getCustomerByConfirmCode(String confirmCode);
 }

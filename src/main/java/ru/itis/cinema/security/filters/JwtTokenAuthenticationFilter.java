@@ -12,7 +12,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import ru.itis.cinema.dto.EmailPasswordDto;
 import ru.itis.cinema.models.Customer;
-import ru.itis.cinema.security.details.CinemaUserDetails;
+import ru.itis.cinema.security.details.CustomerUserDetails;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -52,7 +52,7 @@ public class JwtTokenAuthenticationFilter extends UsernamePasswordAuthentication
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response,
                                             FilterChain chain, Authentication authResult) throws IOException, ServletException {
-        CinemaUserDetails userDetails = (CinemaUserDetails) authResult.getPrincipal();
+        CustomerUserDetails userDetails = (CustomerUserDetails) authResult.getPrincipal();
         Customer customer = userDetails.getUser();
 
         String token = JWT.create()

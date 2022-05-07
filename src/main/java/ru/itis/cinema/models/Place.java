@@ -27,8 +27,7 @@ public class Place {
 
     private Byte number;
 
-    @ManyToOne
-    @JoinColumn(name = "ticket_id")
+    @OneToOne(mappedBy = "place")
     private Ticket ticket;
 
     @ManyToOne

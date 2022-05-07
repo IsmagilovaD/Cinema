@@ -1,0 +1,10 @@
+### Получить Билет
+
+POST localhost/ticket
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4Iiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImRpbmFyYS5pc21hZ2lsb3ZhLm11ckBnbWFpbC5jb20ifQ.aw9463Bpoit2Rp2w7xTnX9CFTgJiS4CC1ZSKCeuYNWs
+Content-Type: application/json
+
+{
+  "sessionId" : "1",
+  "placeNumber" : "1"
+}

@@ -8,11 +8,11 @@ import ru.itis.cinema.models.Customer;
 import java.util.Collection;
 import java.util.Collections;
 
-public class CinemaUserDetails implements UserDetails {
+public class CustomerUserDetails implements UserDetails {
 
     private final Customer customer;
 
-    public CinemaUserDetails(Customer customer){
+    public CustomerUserDetails(Customer customer){
         this.customer = customer;
     }
 
