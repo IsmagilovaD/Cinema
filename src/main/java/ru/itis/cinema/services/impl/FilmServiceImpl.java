@@ -128,4 +128,14 @@ public class FilmServiceImpl implements FilmService {
                     filmsRepository.findFilmByName(sessionForm.getFilmName()).orElseThrow());
         }
     }
+
+    @Override
+    public SessionsPage getSessions(int page) {
+        PageRequest pageRequest = PageRequest.of(page, defaultPageSize);
+        Page<Session> sessionsPage = sessionRepository.findAll(pageRequest);
+        return SessionsPage.builder()
+                .sessions(from(sessionsPage.getContent()))
+                .totalPages(sessionsPage.getTotalPages())
+                .build();
+    }
 }

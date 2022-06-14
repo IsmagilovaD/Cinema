@@ -13,13 +13,18 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.logout.LogoutFilter;
+import ru.itis.cinema.repositories.BlackListRepository;
 import ru.itis.cinema.security.filters.JwtTokenAuthenticationFilter;
 import ru.itis.cinema.security.filters.JwtTokenAuthorizationFilter;
+import ru.itis.cinema.security.filters.JwtTokenLogoutFilter;
 
 @EnableWebSecurity
 public class JwtSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     public static final String LOGIN_FILTER_PROCESSES_URL = "/login";
+
+    public static final String LOGOUT_FILTER_PROCESSES_URL = "/logout";
 
     @Value("${jwt.secretKey}")
     private String secretKey;
@@ -32,6 +37,9 @@ public class JwtSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private ObjectMapper objectMapper;
+
+    @Autowired
+    private BlackListRepository blackListRepository;
 
 
     @Bean
@@ -52,7 +60,7 @@ public class JwtSecurityConfiguration extends WebSecurityConfigurerAdapter {
                         objectMapper, secretKey);
 
         JwtTokenAuthorizationFilter authorizationFilter =
-                new JwtTokenAuthorizationFilter(objectMapper, secretKey);
+                new JwtTokenAuthorizationFilter(objectMapper, secretKey, blackListRepository);
 
         authenticationFilter.setFilterProcessesUrl(LOGIN_FILTER_PROCESSES_URL);
 
@@ -60,9 +68,12 @@ public class JwtSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilter(authenticationFilter);
         http.addFilterBefore(authorizationFilter, UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(new JwtTokenLogoutFilter(blackListRepository), LogoutFilter.class);
 
         http.authorizeRequests()
+                .antMatchers("/swagger-ui/**").permitAll()
                 .antMatchers(LOGIN_FILTER_PROCESSES_URL + "/**").permitAll()
+                .antMatchers(LOGOUT_FILTER_PROCESSES_URL+"/**").authenticated()
                 .antMatchers("films/**").permitAll()
                 .antMatchers("/film").hasAuthority("ADMIN")
                 .antMatchers("/ticket").authenticated()

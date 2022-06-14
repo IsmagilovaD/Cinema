@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collections;
+import java.util.Date;
 
 @Slf4j
 public class JwtTokenAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
@@ -60,6 +61,7 @@ public class JwtTokenAuthenticationFilter extends UsernamePasswordAuthentication
                 .withClaim("email", customer.getEmail())
                 .withClaim("role", customer.getRole().toString())
                 .withClaim("state", customer.getState().toString())
+                .withExpiresAt(new Date(System.currentTimeMillis() + (30 * 60 * 1000)))
                 .sign(Algorithm.HMAC256(secretKey));
 
         objectMapper.writeValue(response.getWriter(), Collections.singletonMap("token", token));

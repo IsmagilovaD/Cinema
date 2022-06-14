@@ -1,5 +1,6 @@
 package ru.itis.cinema.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,9 +15,12 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Schema(description = "Фильм")
 public class FilmDto {
 
+    @Schema(description = "Название фильма", example = "THE BATMAN")
     private String name;
+    @Schema(description = "Жанры фильма", example = "Crime, Adventure, Drama, Action")
     private List<String> genres;
 
     public static FilmDto from(Film film){

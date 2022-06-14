@@ -1,5 +1,6 @@
 package ru.itis.cinema.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,9 +14,14 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Schema(description = "Отзыв")
 public class ReviewDto {
+
+    @Schema(description = "Название фильма", example = "THE BATMAN")
     private String filmName;
+    @Schema(description = "Имя автора", example = "Dinara Ismagilova")
     private String authorName;
+    @Schema(description = "текст отзыва", example = "Very spectacular film. I liked it!")
     private String text;
 
     public static ReviewDto from(Review review){

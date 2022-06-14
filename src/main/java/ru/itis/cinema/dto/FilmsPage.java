@@ -1,5 +1,6 @@
 package ru.itis.cinema.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +12,10 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Schema(description = "Страница со списком фильмов и общее количество страниц")
 public class FilmsPage {
+
     private List<FilmDto> films;
+    @Schema(description = "Количество доступных страниц")
     private Integer totalPages;
 }

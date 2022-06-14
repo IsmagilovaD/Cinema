@@ -3,6 +3,7 @@ package ru.itis.cinema.security.filters;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
+import ru.itis.cinema.repositories.BlackListRepository;
 import ru.itis.cinema.security.config.JwtSecurityConfiguration;
 
 
@@ -27,11 +29,14 @@ public class JwtTokenAuthorizationFilter extends OncePerRequestFilter {
     private final ObjectMapper objectMapper;
     private final String secretKey;
 
+    private final BlackListRepository blackListRepository;
+
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        if (request.getRequestURI().equals(JwtSecurityConfiguration.LOGIN_FILTER_PROCESSES_URL))
-        {
+        if (request.getRequestURI().equals(JwtSecurityConfiguration.LOGIN_FILTER_PROCESSES_URL)
+                || request.getRequestURI().equals(JwtSecurityConfiguration.LOGOUT_FILTER_PROCESSES_URL)
+                || request.getRequestURI().equals("/swagger-ui/index.html")) {
             filterChain.doFilter(request, response);
         } else {
             String tokenHeader = request.getHeader("Authorization");
@@ -42,6 +47,11 @@ public class JwtTokenAuthorizationFilter extends OncePerRequestFilter {
 
             } else if (tokenHeader.startsWith("Bearer ")) {
                 String token = tokenHeader.substring("Bearer ".length());
+
+                if (blackListRepository.exists(token)) {
+                    logger.warn("Token in blacklist");
+                    filterChain.doFilter(request, response);
+                }
 
                 try {
                     DecodedJWT decodedJWT = JWT.require(Algorithm.HMAC256(secretKey))
@@ -54,6 +64,8 @@ public class JwtTokenAuthorizationFilter extends OncePerRequestFilter {
 
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
                     filterChain.doFilter(request, response);
+                }catch (TokenExpiredException e){
+                    sendTokenExpired(response);
                 } catch (JWTVerificationException e) {
                     sendForbidden(response);
                 }
@@ -68,6 +80,12 @@ public class JwtTokenAuthorizationFilter extends OncePerRequestFilter {
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
         objectMapper.writeValue(response.getWriter(), Collections.singletonMap("error", "user not found with token"));
+    }
+
+    private void sendTokenExpired(HttpServletResponse response) throws IOException {
+        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+        response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+        objectMapper.writeValue(response.getWriter(), Collections.singletonMap("error", "token expired"));
     }
 }
 

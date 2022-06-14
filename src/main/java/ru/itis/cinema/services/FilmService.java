@@ -20,4 +20,6 @@ public interface FilmService {
     FilmDto getFilm(Long id);
 
     void deleteSessions(SessionForm sessionForm);
+
+    SessionsPage getSessions(int page);
 }

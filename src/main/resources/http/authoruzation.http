@@ -4,9 +4,9 @@ POST localhost/signUp
 Content-Type: application/json
 
 {
-  "firstName" : "",
+  "firstName" : "Dina",
   "lastName" : "Ismagilova",
-  "email" : "dinara.ismagilova.mur@gmail.com",
+  "email" : "tearshitomichan@gmail.com",
   "password" : "Qwerty007"
 }
 
@@ -19,3 +19,7 @@ Content-Type: application/json
   "email": "dinara.ismagilova.mur@gmail.com",
   "password": "Qwerty007"
 }
+
+### Выйти из аккаунта
+GET localhost/logout
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4Iiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJleHAiOjE2NTMxMzI0MDcsImVtYWlsIjoiZGluYXJhLmlzbWFnaWxvdmEubXVyQGdtYWlsLmNvbSJ9.LcKv5w_0Wg82IJKGxzGx-IFrg1jKjxPzu_5K72f97J8

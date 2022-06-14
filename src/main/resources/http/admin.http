@@ -1,17 +1,17 @@
 ### Посмотреть информацию о фильме
 
 GET localhost/film/1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4Iiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImRpbmFyYS5pc21hZ2lsb3ZhLm11ckBnbWFpbC5jb20ifQ.aw9463Bpoit2Rp2w7xTnX9CFTgJiS4CC1ZSKCeuYNWs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4Iiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJleHAiOjE2NTMxMzI0NjMsImVtYWlsIjoiZGluYXJhLmlzbWFnaWxvdmEubXVyQGdtYWlsLmNvbSJ9.Hoh14QQKxnDluVUNkiw8Jb5e60ICHL3bDDYBa8IFeAM
 
 ### Добавить фильм
 
 POST localhost/film
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4Iiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImRpbmFyYS5pc21hZ2lsb3ZhLm11ckBnbWFpbC5jb20ifQ.aw9463Bpoit2Rp2w7xTnX9CFTgJiS4CC1ZSKCeuYNWs
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4Iiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJleHAiOjE2NTMxMzI0MDcsImVtYWlsIjoiZGluYXJhLmlzbWFnaWxvdmEubXVyQGdtYWlsLmNvbSJ9.LcKv5w_0Wg82IJKGxzGx-IFrg1jKjxPzu_5K72f97J8
 
 {
   "name" : "9 BULLETS",
-  "genres" : ["Mystery & Thriller", "Action"]
+  "genres" : ["Action"]
 }
 
 
@@ -51,7 +51,7 @@ Content-Type: application/json
   "genres" : ["Mystery & Thriller", "Action"]
 }
 
-### Удалить сессии фильмов после какого-то числа
+### Удалить сеансы фильмов после какого-то числа
 
 DELETE localhost/film/session
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4Iiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImRpbmFyYS5pc21hZ2lsb3ZhLm11ckBnbWFpbC5jb20ifQ.aw9463Bpoit2Rp2w7xTnX9CFTgJiS4CC1ZSKCeuYNWs
@@ -61,7 +61,7 @@ Content-Type: application/json
   "startedAt" : "2022-03-01T00:00.000Z"
 }
 
-### Удалить сессии фильмов после какого-то числа
+### Удалить сеансы определенного фильма после какого-то числа
 
 DELETE localhost/film/session
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4Iiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJDT05GSVJNRUQiLCJlbWFpbCI6ImRpbmFyYS5pc21hZ2lsb3ZhLm11ckBnbWFpbC5jb20ifQ.aw9463Bpoit2Rp2w7xTnX9CFTgJiS4CC1ZSKCeuYNWs
